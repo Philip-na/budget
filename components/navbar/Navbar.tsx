@@ -1,11 +1,9 @@
-"use client"
 
-import { url } from "inspector"
 import Link from "next/link"
 import { Button } from "../ui/button"
 import ProfileButton from "../ProfileButton"
 import NoticationButton from "../NoticationButton"
-import { use, useEffect } from "react"
+import { NavigationList } from "./NavigationMenu"
 
 const routes =[
     {
@@ -42,24 +40,25 @@ const routes =[
 ]
 
 const Navbar = () => {
-
   return (
-    <header className="   fixed top-0 left-0 w-full z-[999999]">
+    <header className="bg-white shadow-sm fixed top-0 left-0 w-full z-[999999]">
         <div className="container">
-            <div className="relative   flex h-16 items-center justify-between w-full">
-               
-                <div className="hidden md:flex items-center space-x-6">
-                    {routes.map((route) => (
-                        <Button size={'sm'} variant="link" key={route.name + route.url } asChild>
-                            <Link  href={route.url}  className=" text-white font-cormoratGaramond text-[20px] font-normal  ">{route.name}</Link>
-                        </Button>
-                    ))}
+            <div className="relative   flex h-16 items-center gap-2  w-full">
 
+                <div className="">
+                    <Link href="/">
+                        
+                            <img src="/logob.png" alt="logo" className="h-4 w-28" />
+                       
+                    </Link>
                 </div>
+               
+               <div className="">
+               <NavigationList />
+               </div>
 
-                <div className="flex items-center space-x-2">
-                    {/* <NoticationButton />
-                    <ProfileButton /> */}
+                <div className="flex items-center space-x-2 ml-auto">
+                   
 
                     <Button size={'sm'} variant="ghost" asChild>
                         <Link href="/login" className=" text-white font-cormoratGaramond  text-[20px]">Log in</Link>
