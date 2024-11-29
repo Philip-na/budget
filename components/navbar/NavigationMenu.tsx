@@ -1,149 +1,223 @@
-"use client"
+"use client";
+import * as React from "react";
+import Link from "next/link";
 
-import * as React from "react"
-import Link from "next/link"
-
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 // import { Icons } from "@/components/icons"
 import {
   NavigationMenu,
   NavigationMenuContent,
+  NavigationMenuIndicator,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu"
-
-const components: { title: string; href: string; description: string }[] = [
-  {
-    title: "Alert Dialog",
-    href: "/docs/primitives/alert-dialog",
-    description:
-      "A modal dialog that interrupts the user with important content and expects a response.",
-  },
-  {
-    title: "Hover Card",
-    href: "/docs/primitives/hover-card",
-    description:
-      "For sighted users to preview content available behind a link.",
-  },
-  {
-    title: "Progress",
-    href: "/docs/primitives/progress",
-    description:
-      "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
-  },
-  {
-    title: "Scroll-area",
-    href: "/docs/primitives/scroll-area",
-    description: "Visually or semantically separates content.",
-  },
-  {
-    title: "Tabs",
-    href: "/docs/primitives/tabs",
-    description:
-      "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
-  },
-  {
-    title: "Tooltip",
-    href: "/docs/primitives/tooltip",
-    description:
-      "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
-  },
-]
+} from "@/components/ui/navigation-menu";
+import { categories, tools, univesell } from "@/lib/navigations";
+import CategoryLinkCard from "./category-link-card";
+import { ArrowRight } from "lucide-react";
+import { Button } from "../ui/button";
+import Image from "next/image";
 
 export function NavigationList() {
   return (
     <NavigationMenu>
-      <NavigationMenuList>
-        <NavigationMenuItem>
-          <NavigationMenuTrigger className=" hover:text-red-500 ">
-            Explore More
-          </NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-              <li className="row-span-3">
-                <NavigationMenuLink asChild>
-                  <a
-                    className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
-                    href="/"
-                  >
-                    {/* <Icons.logo className="h-6 w-6" /> */}
-                    <div className="mb-2 mt-4 text-lg font-medium">
-                      shadcn/ui
+      <div className="">
+        <NavigationMenuList className="w-full">
+          <NavigationMenuItem>
+            <NavigationMenuTrigger>Explore More</NavigationMenuTrigger>
+            <NavigationMenuContent className="w-full min-w-full ">
+              <ul className="grid gap-3 p-4    w-full  lg:grid-cols-[220px_auto]">
+                <li className="row-span-3 space-y-1">
+                  <div className="w-full pb-6 pt-2  border-b border-b-gray-300">
+                    <h3 className="text-[14px]  text-[#333] font-sans ">
+                      On univesell
+                    </h3>
+                  </div>
+
+                  <ul className="pt-2 space-y-3">
+                    {univesell.map((item) => (
+                      <li key={item.title}>
+                        <NavigationMenuLink asChild>
+                          <Link href={item.href} className="link" passHref>
+                            <span className="">{item.icon}</span>
+                            <span>{item.title}</span>
+                          </Link>
+                        </NavigationMenuLink>
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+                <li className="row-span-3 space-y-1">
+                  <div className="w-full pb-6 pt-2  border-b border-b-gray-300">
+                    <h3 className="text-[14px]  text-[#333] font-sans ">
+                      Market Place
+                    </h3>
+                  </div>
+
+                  <ul className="pt-2 gap-2  grid grid-cols-12">
+                    {categories.slice(0, 6).map((item) => (
+                      <li
+                        key={item.name}
+                        className=" col-span-12 sm:col-span-6 md:col-span-4"
+                      >
+                        <NavigationMenuLink asChild>
+                          <Link href={item.href} passHref>
+                            <CategoryLinkCard
+                              image={item.image}
+                              name={item.name}
+                            />
+                          </Link>
+                        </NavigationMenuLink>
+                      </li>
+                    ))}
+
+                    <div className="col-span-12 flex py-6 justify-center items-center">
+                      <Button size="sm" variant="outline" asChild>
+                        <Link href="/marketplace" className=" " passHref>
+                          View All
+                          <ArrowRight />
+                        </Link>
+                      </Button>
                     </div>
-                    <p className="text-sm leading-tight text-muted-foreground">
-                      Beautifully designed components built with Radix UI and
-                      Tailwind CSS.
-                    </p>
-                  </a>
-                </NavigationMenuLink>
-              </li>
-              <ListItem href="/docs" title="Introduction">
-                Re-usable components built using Radix UI and Tailwind CSS.
-              </ListItem>
-              <ListItem href="/docs/installation" title="Installation">
-                How to install dependencies and structure your app.
-              </ListItem>
-              <ListItem href="/docs/primitives/typography" title="Typography">
-                Styles for headings, paragraphs, lists...etc
-              </ListItem>
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuTrigger>
-            Planning Tool
-          </NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-              {components.map((component) => (
-                <ListItem
-                  key={component.title}
-                  title={component.title}
-                  href={component.href}
-                >
-                  {component.description}
-                </ListItem>
-              ))}
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <Link href="/docs" legacyBehavior passHref>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-            
-            </NavigationMenuLink>
-          </Link>
-        </NavigationMenuItem>
-      </NavigationMenuList>
+                  </ul>
+                </li>
+              </ul>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <NavigationMenuTrigger>Planning Tool</NavigationMenuTrigger>
+            <NavigationMenuContent className="min-w-full">
+              <ul className="grid w-[400px] gap-3 p-4 pr-0 md:w-[500px] md:grid-cols-2 lg:w-full lg:grid-cols-[auto_250px] ">
+                <li className=" w-full  space-y-1">
+                  <div className="w-full pb-6 pt-2  border-b border-b-gray-300">
+                    <h3 className="text-[14px]  text-[#333] font-sans ">
+                      <Link
+                        href={"/tools/all"}
+                        className="flex no-underline gap-2 items-center "
+                      >
+                        Univesell tool <ArrowRight size={15} />
+                      </Link>
+                    </h3>
+                  </div>
+
+                  <ul className=" grid md:grid-cols-2 pt-2 gap-3">
+                    {tools.map((component) => (
+                      <ListItem
+                        key={component.name}
+                        title={component.name}
+                        href={component.href}
+                        icon={component.icon}
+                      >
+                        {component.description}
+                      </ListItem>
+                    ))}
+                  </ul>
+                </li>
+
+                <li className=" relative w-full h-full  ">
+                  <div className="w-full pb-6 pt-2  border-b border-b-gray-300">
+                    <h3 className="text-[14px]  text-[#333] font-sans ">
+                      <Link
+                        href={"/tools/all"}
+                        className="flex no-underline gap-2 items-center "
+                      >
+                        Access All Tools <ArrowRight size={15} />
+                      </Link>
+                    </h3>
+                  </div>
+
+                  <div className=" relative w-full h-full">
+                    <Image
+                      src="/tool.jpg"
+                      alt="tools"
+                      layout="fill"
+                      objectFit="cover"
+                      className=" w-full h-full"
+                    />
+
+                    <div className="absolute inset-0 bg-black bg-opacity-40 pt-8 ">
+                      <h3 className=" text-white text-lg px-4 ">
+                      Join univesell Pro now
+                      </h3>
+                      <p className=" text-muted text-sm px-4 pb-4">
+                        Get access to more tools and features to help you plan
+                        your event
+                      </p>
+                      <div className="w-full px-4">
+                      <Button className="w-full text-white" size="lg" variant="secondary" asChild>
+                        <Link href="/pro" className=" " passHref>
+                          Les Go Pro
+                        </Link>
+                      </Button>
+                      </div>
+
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <Link href="/resources" legacyBehavior passHref>
+              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                Resources
+              </NavigationMenuLink>
+            </Link>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <Link href="/pricings" legacyBehavior passHref>
+              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                Pricings
+              </NavigationMenuLink>
+            </Link>
+          </NavigationMenuItem>
+
+          <NavigationMenuIndicator />
+        </NavigationMenuList>
+      </div>
     </NavigationMenu>
-  )
+  );
 }
 
 const ListItem = React.forwardRef<
   React.ElementRef<"a">,
-  React.ComponentPropsWithoutRef<"a">
->(({ className, title, children, ...props }, ref) => {
+  React.ComponentPropsWithoutRef<"a"> & {
+    title: string;
+    children: React.ReactNode;
+    icon?: React.ReactNode;
+  }
+>(({ className, title, icon, children, ...props }, ref) => {
   return (
     <li>
       <NavigationMenuLink asChild>
         <a
           ref={ref}
           className={cn(
-            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+            "block group/sub-link select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
             className
           )}
           {...props}
         >
-          <div className="text-sm font-medium leading-none">{title}</div>
-          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-            {children}
-          </p>
+          <div className="flex gap-3">
+            {icon && (
+              <div className="flex-shrink-0 text-primary flex items-center group-hover/sub-link:text-secondary group-focus/sub-link:text-secondary text-2xl">
+                {icon}
+              </div>
+            )}
+            <div className=" block space-y-1">
+              <div className="text-sm font-medium leading-none group-hover/sub-link:text-secondary group-focus/sub-link:text-secondary">
+                {title}
+              </div>
+              <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                {children}
+              </p>
+            </div>
+          </div>
         </a>
       </NavigationMenuLink>
     </li>
-  )
-})
-ListItem.displayName = "ListItem"
+  );
+});
+ListItem.displayName = "ListItem";

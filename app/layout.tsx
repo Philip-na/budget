@@ -1,25 +1,11 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+
 import "./globals.css";
-import Navbar from "@/components/navbar/Navbar";
-import path from "path";
-import { Weight } from "lucide-react";
+
+import { inter, montserrat } from "./fonts";
 
 
 
-const cormoratGaramond = localFont({
-  src: [
-    {
-      path: "./fonts/Cormorant_Garamond/CormorantGaramond-Bold.ttf",
-      weight: "900",
-      style: "normal",
-    },
-   
-    
-  
-  ],
-  variable: "--font-cormorant-garamond",
-});
 // 
 
 export const metadata: Metadata = {
@@ -35,9 +21,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${cormoratGaramond.variable} antialiased`}
+        className={`${montserrat.variable} ${inter.variable} antialiased`}
       >
-        <Navbar />
+      
         {children}
       </body>
     </html>

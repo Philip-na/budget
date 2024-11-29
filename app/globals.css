@@ -16,7 +16,7 @@ body {
     --popover-foreground: 222.2 84% 4.9%;
     --primary: 222.2 47.4% 11.2%;
     --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
+    --secondary: 21 89% 56%;
     --secondary-foreground: 222.2 47.4% 11.2%;
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
@@ -43,7 +43,7 @@ body {
     --popover-foreground: 210 40% 98%;
     --primary: 213, 79%, 13%;
     --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
+    --secondary: 21 89% 56%;
     --secondary-foreground: 210 40% 98%;
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
@@ -89,6 +89,28 @@ body {
   }
   .budget-header h2 {
     @apply text-lg font-semibold text-primary;
+  }
+
+  .link{
+    @apply flex gap-3 select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-secondary focus:bg-accent focus:text-secondary;
+  }
+
+  .blur-bg{
+    @apply absolute w-full h-full top-0 left-0  bg-black bg-opacity-50 transition-all duration-300;
+  }
+
+  
+/* absolute w-full h-full top-0 left-0 transition-all duration-300 */
+
+  /* navigation bar */
+
+
+  .category_link_card{
+    @apply flex overflow-hidden relative flex-col items-center justify-center w-full h-24 bg-gray-100 rounded-lg shadow-md;
+  }
+
+  .category_link_card_bg{
+    @apply absolute transition-all duration-300 w-full h-full top-0 left-0;
   }
 
 }

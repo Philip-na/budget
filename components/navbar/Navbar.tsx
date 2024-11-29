@@ -4,6 +4,7 @@ import { Button } from "../ui/button"
 import ProfileButton from "../ProfileButton"
 import NoticationButton from "../NoticationButton"
 import { NavigationList } from "./NavigationMenu"
+import Image from "next/image"
 
 const routes =[
     {
@@ -15,7 +16,6 @@ const routes =[
         name: 'Services',
         url: '/services'
     },
-
     {
         name: 'Vendor',
         url: '/vendor'
@@ -31,12 +31,7 @@ const routes =[
     {
         name: 'Contact Us',
         url: '/contact'
-    },
-  
- 
-  
-  
-    
+    },  
 ]
 
 const Navbar = () => {
@@ -48,12 +43,12 @@ const Navbar = () => {
                 <div className="">
                     <Link href="/">
                         
-                            <img src="/logob.png" alt="logo" className="h-4 w-28" />
-                       
+                            <img src="/logob.png" alt="logo" className="h-4 w-28" /> 
+                            {/* <Image src="/logob.png" alt="logo" width={100} height={100} /> */}
                     </Link>
                 </div>
                
-               <div className="">
+               <div className=" w-full">
                <NavigationList />
                </div>
 
@@ -61,10 +56,10 @@ const Navbar = () => {
                    
 
                     <Button size={'sm'} variant="ghost" asChild>
-                        <Link href="/login" className=" text-white font-cormoratGaramond  text-[20px]">Log in</Link>
+                        <Link href="/login" className=" font-cormoratGaramond  text-[20px]">Log in</Link>
                     </Button>
-                    <Button size={'sm'} variant="default" asChild>
-                        <Link href="/register" className=" text-white font-cormoratGaramond   text-[20px]">Sign up</Link>
+                    <Button size={'sm'} variant="secondary" asChild>
+                        <Link href="/register" className=" text-white font-cormoratGaramond   text-[20px]">Get started</Link>
                     </Button>
                 </div>
               

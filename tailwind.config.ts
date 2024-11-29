@@ -52,7 +52,8 @@ export default {
   			}
   		},
 		  fontFamily: {
-			"cormoratGaramond": ["var(--font-cormorant-garamond)"],
+			sans: ['var(--font-inter)'],
+			mont: ["var(--font-montserrat)"],
 		},
   		borderRadius: {
   			lg: 'var(--radius)',
