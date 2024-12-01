@@ -4,7 +4,7 @@ import LoginRight from '../components/login-right'
 
 const Login = () => {
   return (
-    <div className=" w-[100vw] max-w-[980px]  rounded-sm grid grid-cols-12 ">
+    <div className=" bg-white shadow-md  w-[100vw] max-w-[900px]  rounded-sm grid grid-cols-12 ">
 
         <LoginLeft />
         <LoginRight />
