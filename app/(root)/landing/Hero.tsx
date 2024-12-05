@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
@@ -30,7 +29,7 @@ const Hero = () => {
             </h1>
             <p className=" text-center  text-sm text-gray-400">
               With over 1000+ vendors, we have all you need to make your event a
-              success <br /> is more than just a platform, it's a community of
+              success <br /> is more than just a platform, it&apos;s a community of
               event planners, vendors and more
             </p>
           </div>
