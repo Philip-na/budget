@@ -6,33 +6,6 @@ import { Button } from "../ui/button"
 import { NavigationList } from "./NavigationMenu"
 // import Image from "next/image"
 
-const routes =[
-    {
-        name: 'Home',
-        url: '/'
-    },
-
-    {
-        name: 'Services',
-        url: '/services'
-    },
-    {
-        name: 'Vendor',
-        url: '/vendor'
-    },
-    {
-        name: 'Venue',
-        url: '/venue'
-    },
-    {
-        name: 'About Us',
-        url: '/about'
-    },
-    {
-        name: 'Contact Us',
-        url: '/contact'
-    },  
-]
 
 const Navbar = () => {
   return (

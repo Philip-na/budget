@@ -37,7 +37,7 @@ const Hero = () => {
           <div className=" px-4 mt-8 flex max-w-[690px] gap-4">
             <Button size="lg" variant="default" className="w-full" asChild>
               <Link href="/services">
-                Explore <ArrowRight size={20} />{" "}
+                Explore <ArrowRight size={20} />
               </Link>
             </Button>
             <Button size="lg" variant="secondary" className="w-full" asChild>
