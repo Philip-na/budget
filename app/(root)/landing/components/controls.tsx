@@ -12,7 +12,7 @@ type ControlsProps = {
 };
 
 const Controls = ({
-  currentSlideData,
+//   currentSlideData,
   silderData,
   data,
   transitionData,

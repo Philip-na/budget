@@ -17,9 +17,9 @@ const Backgroundimg = ({ transtionData, currentSlideData }: props) => {
           alt="Transition image"
           initial={{ x: 0, opacity: 1 }}
           animate={{ x: "-100%", opacity: 0 }}
-          exit={{ x: "-100%", opacity: 0 }}
-          transition={{ duration: 0.8, ease: "easeInOut" }}
-          className="absolute left-0 top-0 z-10 h-full w-full object-cover brightness-50"
+          exit={{ x: "-100%", opacity: .5 }}
+          transition={{ duration: .8, ease: "easeInOut" }}
+          className="absolute left-0 top-0 z-10 h-full w-full object-cover brightness-50 rounded-lg"
         />
       )}
 
@@ -28,11 +28,11 @@ const Backgroundimg = ({ transtionData, currentSlideData }: props) => {
           key={currentSlideData.data.img}
           src={currentSlideData.data.img}
           alt="Current image"
-          initial={{ x: "100%", opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          exit={{ x: "100%", opacity: 0 }}
+          initial={{  opacity: 0, scale: .5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          // exit={{ x: "100%", opacity: 0 }}
           transition={{ duration: 0.8, ease: "easeInOut" }}
-          className="absolute left-0 top-0 h-full w-full object-cover brightness-50"
+          className="absolute left-0 top-0 h-full w-full object-cover brightness-50 rounded-lg"
         />
       )}
     </>

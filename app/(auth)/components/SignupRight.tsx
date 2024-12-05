@@ -1,7 +1,7 @@
-import { facebookIcon, googleIcon, xIcon, youtubeIcon } from "@/assets";
+import {  googleIcon } from "@/assets";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import { Separator } from "@/components/ui/separator";
+// import { Separator } from "@/components/ui/separator";
 import SeparatorWith from "./Separator";
 import { Input } from "@/components/ui/input";
 

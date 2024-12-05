@@ -1,4 +1,4 @@
-import { ArrowDownZA, Calculator, CalendarCheck, CalendarRange, ChartGantt, ContactRound, FileUser, Globe, HandPlatter, HeartHandshake, ListTodo, SquareSigma, Sun } from "lucide-react"
+import { ArrowDownZA, Calculator, CalendarCheck, CalendarRange, ChartGantt, ContactRound, FileUser, Globe, HandPlatter, HeartHandshake, ListTodo, Sun } from "lucide-react"
 
 export const  univesell:{title:string,href:string,description:string, icon: React.ReactNode}[] = [
   // {

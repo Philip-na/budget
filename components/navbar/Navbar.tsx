@@ -1,10 +1,10 @@
 
 import Link from "next/link"
 import { Button } from "../ui/button"
-import ProfileButton from "../ProfileButton"
-import NoticationButton from "../NoticationButton"
+// import ProfileButton from "../ProfileButton"
+// import NoticationButton from "../NoticationButton"
 import { NavigationList } from "./NavigationMenu"
-import Image from "next/image"
+// import Image from "next/image"
 
 const routes =[
     {

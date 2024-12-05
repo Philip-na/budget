@@ -1,6 +1,5 @@
 import React from 'react'
 import LoginLeft from '../components/login-left'
-import LoginRight from '../components/login-right'
 import SignupRight from '../components/SignupRight'
 
 const Signup = () => {

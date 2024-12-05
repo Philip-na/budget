@@ -6,7 +6,7 @@ import {
   InputOTPSeparator,
   InputOTPSlot,
 } from "@/components/ui/input-otp";
-import { REGEXP_ONLY_DIGITS, REGEXP_ONLY_DIGITS_AND_CHARS } from "input-otp";
+import { REGEXP_ONLY_DIGITS } from "input-otp";
 import { useState } from "react";
 
 const EnterOtp = () => {
@@ -14,7 +14,7 @@ const EnterOtp = () => {
   return (
     <>
      <div className="flex flex-col gap-4">
-     <InputOTP maxLength={6} pattern={REGEXP_ONLY_DIGITS_AND_CHARS} value={value} onChange={setValue}>
+     <InputOTP maxLength={6} pattern={REGEXP_ONLY_DIGITS} value={value} onChange={setValue}>
         <InputOTPGroup>
           <InputOTPSlot index={0} />
           <InputOTPSlot index={1} />
